@@ -1,0 +1,10 @@
+{
+  "/page": "app/page.js",
+  "/owner/(dashboard)/stok/page": "app/owner/(dashboard)/stok/page.js",
+  "/owner/(dashboard)/bahan-baku/page": "app/owner/(dashboard)/bahan-baku/page.js",
+  "/owner/(dashboard)/keuangan/page": "app/owner/(dashboard)/keuangan/page.js",
+  "/owner/(dashboard)/produk/page": "app/owner/(dashboard)/produk/page.js",
+  "/owner/(dashboard)/pesanan/page": "app/owner/(dashboard)/pesanan/page.js",
+  "/owner/(dashboard)/dashboard/page": "app/owner/(dashboard)/dashboard/page.js",
+  "/owner/(dashboard)/konsinyasi/page": "app/owner/(dashboard)/konsinyasi/page.js"
+}

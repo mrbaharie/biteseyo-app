@@ -1,0 +1,70 @@
+{
+  "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/owner/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/login/page.js"
+    ],
+    "/owner/(dashboard)/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/dashboard/page.js"
+    ],
+    "/owner/(dashboard)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/layout.js"
+    ],
+    "/owner/(dashboard)/pesanan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/pesanan/page.js"
+    ],
+    "/owner/(dashboard)/pengaturan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/pengaturan/page.js"
+    ],
+    "/owner/(dashboard)/kategori/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/kategori/page.js"
+    ],
+    "/owner/(dashboard)/keuangan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/keuangan/page.js"
+    ],
+    "/owner/(dashboard)/stok/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/stok/page.js"
+    ],
+    "/owner/(dashboard)/bahan-baku/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/bahan-baku/page.js"
+    ],
+    "/owner/(dashboard)/produk/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/produk/page.js"
+    ],
+    "/owner/(dashboard)/konsinyasi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/owner/(dashboard)/konsinyasi/page.js"
+    ]
+  }
+}
