@@ -8,6 +8,10 @@ import { FieldWrap, TextInput, TextArea, Select } from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import { rupiah, validateNama, validateNoWa, validateAlamat, validateRequiredSelect } from '@/lib/validation';
 import { LokasiCod, MetodePengiriman, MetodeBayar } from '@/lib/types';
+type KonfirmasiTransaksi = {
+  kode_lacak: string;
+  grand_total: number;
+};
 
 export default function PesanPage() {
   const { items, setQty, remove, subtotal, clear } = useCart();
@@ -102,12 +106,21 @@ export default function PesanPage() {
       return;
     }
 
-    // ambil kode_lacak transaksi yang baru dibuat
-    const { data: trx } = await supabase.from('transaksi').select('kode_lacak, grand_total').eq('id', data).single();
-    if (trx) {
-      setReceipt({ kode: trx.kode_lacak, total: trx.grand_total });
+    // ambil kode_lacak transaksi yang baru dibuat (pakai RPC biar bypass RLS anon)
+    const { data: trxRaw, error: trxError } = await supabase
+      .rpc('fn_get_konfirmasi_transaksi', { p_id: data })
+      .maybeSingle();
+
+    const trx = trxRaw as KonfirmasiTransaksi | null;
+
+    if (trxError || !trx) {
+      alert('Pesanan berhasil dibuat, tapi gagal memuat konfirmasi. Silakan cek halaman Lacak Pesanan.');
       clear();
+      return;
     }
+
+    setReceipt({ kode: trx.kode_lacak, total: trx.grand_total });
+    clear();
   }
 
   if (receipt) {
