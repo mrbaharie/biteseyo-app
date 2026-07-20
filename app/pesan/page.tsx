@@ -220,7 +220,7 @@ export default function PesanPage() {
           <Select value={bayar} onChange={(e) => setBayar(e.target.value as MetodeBayar)} error={errors.bayar}>
             <option value="">-- pilih metode bayar --</option>
             <option value="transfer">Transfer Bank</option>
-            <option value="qris">QRIS</option>
+            {/* <option value="qris">QRIS</option> */}
             <option value="tunai">Tunai (COD)</option>
           </Select>
         </FieldWrap>

@@ -1,4 +1,4 @@
-// File: D:\Project\Development\Bite-Se-Yo\biteseyo-app\biteseyo-app\app\layout.tsx
+// File: E:\Nitip\biteseyo-app\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

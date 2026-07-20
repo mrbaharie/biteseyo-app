@@ -7,6 +7,7 @@ import Modal from '@/components/ui/Modal';
 import { Select } from '@/components/ui/Input';
 import { rupiah, formatNoWaLink } from '@/lib/validation';
 import { StatusTransaksi, Transaksi } from '@/lib/types';
+import TambahPesananModal from './TambahPesananModal';
 
 const STATUS_TONE: Record<StatusTransaksi, 'default' | 'ok' | 'warn' | 'danger'> = {
   pending: 'warn', dikonfirmasi: 'default', diproses: 'default', dikirim: 'default', selesai: 'ok', dibatalkan: 'danger',
@@ -40,6 +41,7 @@ export default function PesananPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>('semua');
   const [detail, setDetail] = useState<Transaksi | null>(null);
+  const [showTambah, setShowTambah] = useState(false);
 
   async function load() {
     setLoading(true);
@@ -75,14 +77,17 @@ export default function PesananPage() {
           <h1 className="font-doodle text-3xl">Pesanan</h1>
           <p className="text-inkSoft text-sm">Konfirmasi pembayaran otomatis potong stok bahan baku</p>
         </div>
-        <Select value={filter} onChange={(e) => setFilter(e.target.value)} className="w-full sm:w-52">
-          <option value="semua">Semua Status</option>
-          <option value="pending">Pending</option>
-          <option value="diproses">Diproses</option>
-          <option value="dikirim">Dikirim</option>
-          <option value="selesai">Selesai</option>
-          <option value="dibatalkan">Dibatalkan</option>
-        </Select>
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+          <Select value={filter} onChange={(e) => setFilter(e.target.value)} className="w-full sm:w-52">
+            <option value="semua">Semua Status</option>
+            <option value="pending">Pending</option>
+            <option value="diproses">Diproses</option>
+            <option value="dikirim">Dikirim</option>
+            <option value="selesai">Selesai</option>
+            <option value="dibatalkan">Dibatalkan</option>
+          </Select>
+          <Button onClick={() => setShowTambah(true)} className="whitespace-nowrap">+ Tambah Pesanan</Button>
+        </div>
       </div>
 
       <div className="overflow-x-auto bg-paper border-2 border-ink rounded-2xl shadow-doodle-sm">
@@ -149,6 +154,10 @@ export default function PesananPage() {
             )}
           </div>
         )}
+      </Modal>
+
+      <Modal open={showTambah} onClose={() => setShowTambah(false)} title="Tambah Pesanan Manual">
+        <TambahPesananModal open={showTambah} onClose={() => setShowTambah(false)} onCreated={load} />
       </Modal>
     </div>
   );
